@@ -13,7 +13,7 @@ const geocode = (adress, callback) => {
 };
 
 const weather = (latitude, longtitude, callback) => {
-  const urlWth = `https://api.darksky.net/forecast/26ffbe7fa8e549e5cabe4cd8edfa3c99/${latitude},${longtitude}?lang=tr&units=si`;
+  const urlWth = `https://api.darksky.net/forecast/26ffbe7fa8e549e5cabe4cd8edfa3c99/${latitude},${longtitude}?units=si`;
   request({ url: urlWth, json: true }, (error, response) => {
     if (error) console.log(error);
     callback(response);

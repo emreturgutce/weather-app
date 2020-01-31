@@ -41,11 +41,16 @@ app.get('/weather', (req, res) => {
   } else {
     geocode(req.query.adress, ({ place, longtitude, latitude }) => {
       weather(latitude, longtitude, response => {
-        const { summary, temperature } = response.body.currently;
+        const {
+          summary,
+          temperature,
+          precipProbability
+        } = response.body.currently;
         res.send({
+          prob: precipProbability,
           place: place,
           forecast: summary,
-          temperature: temperature + 'C',
+          temperature: temperature + '°C',
           adress: req.query.adress.toUpperCase()
         });
       });
